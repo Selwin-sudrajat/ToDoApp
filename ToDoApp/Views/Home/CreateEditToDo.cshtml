@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Create / Edit";
+}
+
+@model ToDoApp.Models.ToDo;
+
+<div class="text-center">
+    <h1 class="display-4">Create or Edit</h1>
+</div>
+
+<form asp-controller="Home" asp-action="CreateEditForm">
+    @* send to CreateEditForm *@
+    <input hidden type="number" asp-for="Id" class="form-control" placeholder="0" />
+    <label class="mt-4">Description</label>
+    <input type="text" asp-for="Description" class="form-control" placeholder="Add a Description" />
+
+    <button class="btn btn-primary mt-4" type="submit">Ok</button>
+</form>
