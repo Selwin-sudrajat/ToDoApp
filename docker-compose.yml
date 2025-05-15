@@ -1,0 +1,32 @@
+services:
+  todoapp:
+    image: ${DOCKER_REGISTRY-}todoapp
+    build:
+      context: .
+      dockerfile: ToDoApp/Dockerfile
+    ports:
+    - "5000:5000"
+    - "5001:5001"
+  todoapp_db:
+    image: postgres
+    restart: always
+    container_name: postgres_DB
+    environment:
+      - POSTGRES_USER=postgres 
+      - POSTGRES_PASSWORD=qwe12345
+      - POSTGRES_DB=ToDoApp
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+ 
+volumes:
+  pgdata:
+
+

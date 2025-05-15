@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  todoapp:
+    # image: ${DOCKER_REGISTRY-}todoapp
+    build:
+      context: .
+      dockerfile: ToDoApp/Dockerfile
+    ports:
+    - "5000:8080"
+    environment:
+    - ASPNETCORE_ENVIRONMENT=Development
+  db:
+    image: postgres
+    restart: always
+    container_name: postgres
+    environment:
+      POSTGRES_USER: sa 
+      POSTGRES_PASSWORD: qwe12345
+      POSTGRES_DB: ToDoApp
+    volumes:
+      - pgdata:/var/lib/postgresql/data 
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+ 
+volumes:
+  pgdata:

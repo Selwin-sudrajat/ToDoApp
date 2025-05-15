@@ -28,6 +28,10 @@
 					</td>
 					<td>@todo.Description</td>
 					<td>
+						@if (!todo.Check)
+						{
+							<a asp-controller="Home" asp-action="CreateEditToDo" asp-route-id="@todo.Id" class="btn btn-secondary">Edit</a>
+						}
 						<a asp-controller="Home" asp-action="DeleteToDo" asp-route-id="@todo.Id" class="btn btn-danger">Delete</a>
 					</td>
 				</tr>
