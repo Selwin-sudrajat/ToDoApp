@@ -17,7 +17,7 @@ namespace ToDoApp.Controllers
 
         public IActionResult Index()
         {
-            var ToDoList = _context.ToDo.OrderBy(t => t.Id).ToList();
+            var ToDoList = _context.ToDo.OrderBy(t => t.Id ).ToList();
             
             return View(ToDoList);
         }

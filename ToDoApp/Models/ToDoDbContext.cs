@@ -6,7 +6,7 @@ namespace ToDoApp.Models
     {
         public ToDoDbContext(DbContextOptions<ToDoDbContext> options) : base(options) { }
 
-        public DbSet<ToDo> ToDo { get; set; }
+        public virtual DbSet<ToDo> ToDo { get; set; }
         public DbSet<Log> Log { get; set; }
     }
 }
